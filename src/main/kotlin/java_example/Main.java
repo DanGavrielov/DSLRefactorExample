@@ -10,21 +10,19 @@ import java.time.Month;
 
 public class Main {
     public static void main(String[] args) {
-        Client.Builder clientBuilder = new Client.Builder()
-                .setName("Dan Gavrielov")
-                .setAge(32);
+        Client.Builder clientBuilder = new Client.Builder();
+        clientBuilder.setName("Dan Gavrielov");
+        clientBuilder.setAge(32);
 
-        Job job = new Job.Builder()
-                .setCompanyName("Gini-Apps")
-                .setTitle("Android Developer")
-                .build();
-        clientBuilder.setJob(job);
+        Job.Builder jobBuilder = new Job.Builder();
+        jobBuilder.setCompanyName("Gini-Apps");
+        jobBuilder.setTitle("Android Developer");
+        clientBuilder.setJob(jobBuilder.build());
 
-        ContactInfo contactInfo = new ContactInfo.Builder()
-                .setEmailAddress("dang@gini-apps.com")
-                .setPhoneNumber("050-4403090")
-                .build();
-        clientBuilder.setContactInfo(contactInfo);
+        ContactInfo.Builder contactInfoBuilder = new ContactInfo.Builder();
+        contactInfoBuilder.setEmailAddress("dang@gini-apps.com");
+        contactInfoBuilder.setPhoneNumber("050-4403090");
+        clientBuilder.setContactInfo(contactInfoBuilder.build());
 
         Schedule schedule = new Schedule();
         Event jamSession = new Event("Jam Session");
