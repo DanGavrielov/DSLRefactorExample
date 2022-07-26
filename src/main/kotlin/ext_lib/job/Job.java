@@ -26,8 +26,8 @@ public class Job {
     }
 
     public static class Builder {
-        private String companyName;
-        private String title;
+        public String companyName;
+        public String title;
 
         public Builder setCompanyName(String companyName) {
             this.companyName = companyName;

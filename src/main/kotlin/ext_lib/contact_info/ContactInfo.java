@@ -26,8 +26,8 @@ public class ContactInfo {
     }
 
     public static class Builder {
-        private String phoneNumber;
-        private String emailAddress;
+        public String phoneNumber;
+        public String emailAddress;
 
         public Builder setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;

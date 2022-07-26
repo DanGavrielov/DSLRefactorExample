@@ -51,12 +51,11 @@ public class Client {
     }
 
     public static class Builder {
-        private String name;
-        private int age;
-        private Job job;
-        private ContactInfo contactInfo;
-
-        private Schedule schedule;
+        public String name;
+        public int age;
+        public Job job;
+        public ContactInfo contactInfo;
+        public Schedule schedule;
 
         public Builder setName(String name) {
             this.name = name;
