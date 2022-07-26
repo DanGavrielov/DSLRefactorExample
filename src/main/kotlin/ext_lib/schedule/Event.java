@@ -3,9 +3,11 @@ package ext_lib.schedule;
 import java.time.LocalDateTime;
 
 public class Event {
-    private String name;
-    private LocalDateTime dateTime = LocalDateTime.now();
+    public String name;
+    public LocalDateTime dateTime = LocalDateTime.now();
+    public Event() {
 
+    }
     public Event(String name) {
         this.name = name;
     }
