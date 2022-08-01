@@ -96,6 +96,7 @@ val something: Any = number // Any is a super type of everything
 val string: String = "string" // String is both class and type
 val nullable: String? = "string"
 val nonNullable: String = nullable // Will not compile, String? is not a subtype of String
+val anotherNullable: String? = string // Will compile, String is a subtype of String?
 
 
 
