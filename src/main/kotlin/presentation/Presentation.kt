@@ -739,6 +739,32 @@ fun extExample() {
 
 
 
+// IMPLICIT VS EXPLICIT RECEIVERS
+
+class Guitar {
+    fun playSong() {}
+}
+
+fun explicit() {
+    val guitar = Guitar()
+    guitar.playSong()
+}
+
+fun Guitar.implicit() {
+    playSong()
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
