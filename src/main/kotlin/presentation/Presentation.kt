@@ -149,14 +149,6 @@ fun willNeverComplete() {
 
 
 
-// Any corresponds to java.lang.Object, for example (watch the bytecode!):
-fun any() {
-    val value: Any = Any()
-    (value as Object).wait()
-}
-
-
-
 
 
 
