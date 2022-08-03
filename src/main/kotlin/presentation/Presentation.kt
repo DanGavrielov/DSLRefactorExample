@@ -58,6 +58,9 @@ import java.lang.reflect.Method
 
 
 
+
+
+
 // TYPE VS CLASS
 
 val str: String = "string" // <--- String is both the class and the type
@@ -295,6 +298,11 @@ fun errorWithExplicitType() {
 
 
 
+
+
+
+
+
 fun inlineExample() {
     val list = listOf(1, 2, 3)
     val mapped = list.map { it + 1 }
@@ -397,6 +405,7 @@ fun flush(log: (String) -> Unit) {
 
 // that means that inlined arguments can only be invoked!
 // why is that?
+// inlined arguments are not objects!
 
 
 
@@ -428,13 +437,13 @@ inline fun bar(block: () -> Unit) {
 }
 
 fun baz() {
-    val x = foo {
-        println("trapped in bar!")
+    foo {
+        println("trapped in baz!")
         return
         return@foo // <- to exit this lambda
     }
     bar {
-        println("exiting bar!")
+        println("exiting baz!")
         return
     }
 }
@@ -454,21 +463,15 @@ fun baz() {
 
 
 
-
-// passing lambdas around in an inline method is forbidden
 // the lambda could contain a non-local return
 inline fun f(body: () -> Unit) {
-    val f = object: Runnable {
-        override fun run() = body()
-    }
+    val f = Runnable { body() }
     // ...
 }
 
 // a quick fix, crossinline!
 inline fun f2(crossinline body: () -> Unit) {
-    val f = object: Runnable {
-        override fun run() = body()
-    }
+    val f = Runnable { body() }
     // ...
 }
 
@@ -779,10 +782,25 @@ fun execute(block: (String) -> Unit) {
 
 fun executeInContext(block: String.() -> Unit) {
     // this:
-    block("Hello")
+    block("Hello!")
     // is the same as this:
-    "Hello".block()
+    "Hello!".block()
 }
+
+fun e() {
+    execute {
+        it.uppercase()
+    }
+    executeInContext {
+        uppercase()
+    }
+}
+
+
+
+
+
+
 
 
 
